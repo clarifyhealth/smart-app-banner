@@ -15,7 +15,7 @@ var root = doc && doc.documentElement;
 // platform dependent functionality
 var mixins = {
 	ios: {
-		appMeta: 'apple-itunes-app',
+		appMeta: 'apple-itunes-app-custom',
 		iconRels: ['apple-touch-icon-precomposed', 'apple-touch-icon'],
 		getStoreLink: function () {
 			return 'https://itunes.apple.com/' + this.options.appStoreLanguage + '/app/id' + this.appId + "?mt=8";
@@ -89,7 +89,7 @@ var SmartBanner = function (options) {
 	var userDismissed = cookie.get(this.appId + '-smartbanner-closed');
 	var userInstalled = cookie.get(this.appId + '-smartbanner-installed');
 
-	if (isMobileSafari || runningStandAlone || userDismissed || userInstalled) {
+	if (runningStandAlone || userDismissed || userInstalled) {
 		return;
 	}
 
